@@ -6,6 +6,11 @@ body {
     width: 18%;
 }
 
+.news-scroll {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
 .news-scroll a {
     text-decoration: none
 }

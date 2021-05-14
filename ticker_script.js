@@ -41,13 +41,7 @@ function toggle_spellNews() {
     spellOn = !spellOn;
 }
 
-/*
-function toggleButton() {
-    document.getElementById
+// not used as of now, will be used later to dynamicly add and remove elements from the ticker
+function addElementToTicker() {
+    $("#ticker_marquee").append($("<span>", { class: "dot"}));
 }
-
-function addFilter() {
-    document.getElementById("ticker_marquee").
-}
-
-*/

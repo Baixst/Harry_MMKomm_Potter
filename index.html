@@ -14,6 +14,9 @@
     <!-- Include JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!-- Include own JavaScript for Newsticker -->
+    <script src="ticker_script.js"></script> 
+
     <title>Newsticker</title>
 </head>
 <body>
@@ -26,6 +29,10 @@
             <div class="col-md-9">       <!-- Span 12/12 -->
                 <button id=sportFilter type="button" class="btn btn-info" onclick="toggle_sportNews();">Sport</button>
                 <button id=spellFilter type="button" class="btn btn-info" onclick="toggle_spellNews();">New Spells</button>
+                <button id=muggleFilter type="button" class="btn btn-info" onclick="toggle_muggleNews();">Muggle-Area</button>
+                <button id=politicFilter type="button" class="btn btn-info" onclick="toggle_politicNews();">Politics</button>
+                <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggle_hogwartsNews();">Hogwarts</button>
+                <button id=aurorFilter type="button" class="btn btn-info" onclick="toggle_aurorNews();">Aurors</button>
             </div>
         </div>
     </div>
@@ -38,14 +45,10 @@
                     <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-ticker-logo py-2 text-white px-1 news">
                             <span class="d-flex align-items-center">Latest News</span>
                     </div>
-                    <marquee id=ticker_marquee class="news-scroll" behavior="scroll" direction="left" scrollamount="3" scrolldelay="20" truespeed onmouseover="this.stop();" onmouseout="this.start();">
+                    <marquee id=ticker_marquee class="news-scroll" behavior="scroll" direction="left" scrollamount="3" scrolldelay="20" truespeed
+                             onmouseover="this.stop();" onmouseout="this.start();">
                         <span class="dot"></span>
-                        <a href="#">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</a> 
-                        <span class="dot"></span>
-                        <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-                        <span class="dot"></span>
-                        <a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse. </a>
-                        <span class="dot"></span>
+                        <script>addAllNewsToTicker();</script>
                     </marquee>
                 </div>
             </div>
@@ -59,9 +62,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Include own JavaScript for Newsticker -->
-    <script src="ticker_script.js"></script> 
 
     <!-- Bootstrap JavaScript Bundle, for tooltips, popovers, etc. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>

@@ -9,5 +9,4 @@
 3.) Lege neue Headline an oder bearbeite bestehende
   - **Title:** Legt den Text fest der im Ticker durchläuft
   - **Link:** Link zum vollständigen Artikel (href)
-  - **Section:** Kategorie zu der die Headline gehört
-		  - *mögliche Kategorien:* "spellNews", "sportNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews"
+  - **Section:** Kategorie zu der die Headline gehört (*mögliche Kategorien:* "spellNews", "sportNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews")

@@ -3,7 +3,9 @@
 ## Neue Headline zum Ticker hinzufügen:
 
 1.) Öffne "ticker_script.js"
+
 2.) Suche nach Liste von Arrays names "headline1", "headline2", usw.
+
 3.) Lege neue Headline an oder bearbeite bestehende
   - **Title:** Legt den Text fest der im Ticker durchläuft
   - **Link:** Link zum vollständigen Artikle (href)

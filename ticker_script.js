@@ -1,10 +1,4 @@
-// Booleans for news filter
-var sportOn = true;
-var spellOn = true;
-var muggleOn = true;
-var politicOn = true;
-var hogwartsOn = true;
-var aurorOn = true;
+const COOKIE_EXDAYS = 1;
 
 // some example headlines
 var headline1 = {title:" Firebolt now deals 3d10 damage!", link:"#", section:"spellNews"};
@@ -28,13 +22,86 @@ var headline11 = {title:" \"Aurors are underpayed\" says Harry Potter", link:"#"
 var headlines = [headline1, headline2, headline3, headline4, headline5, headline6, headline7, headline8,
                  headline9, headline10, headline11];
 
+// functions for cookie management
+function setCookie(cname, cvalue, exdays) {
+    var date = new Date();
+    date.setTime(date.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ date.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var carray = decodedCookie.split(';');
+    for(var i = 0; i <carray.length; i++) {
+      var c = carray[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+function checkCookies() {
+
+    //create cookies if they don't exist yet
+    if(document.cookie == "") {
+        console.log("no cookies are set");
+        setCookie("csport", "on", COOKIE_EXDAYS);
+        setCookie("cspell", "on", COOKIE_EXDAYS);
+        setCookie("cmuggle", "on", COOKIE_EXDAYS);
+        setCookie("cpolitic", "on", COOKIE_EXDAYS);
+        setCookie("chogwarts", "on", COOKIE_EXDAYS);
+        setCookie("cauror", "on", COOKIE_EXDAYS);
+    }
+    console.log(document.cookie);
+}
+
+function toggleCookie(cname) {
+    if(getCookie(cname) == "on") {
+        setCookie(cname, "off", COOKIE_EXDAYS);
+    }
+    else {
+        setCookie(cname, "on", COOKIE_EXDAYS);
+    }
+}
+
+function deleteCookies() {
+    document.cookie = "csport=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cspell=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cmuggle=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cpolitic=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "chogwarts=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cauror=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "undefined=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// get called right after page finished loading
+function setFilter() {
+    
+    checkCookies();
+    //deleteCookies();
+
+    var cookies = ["csport", "cspell", "cmuggle", "cpolitic", "chogwarts", "cauror"];
+    var buttonIDs = ["sportFilter", "spellFilter", "muggleFilter", "politicFilter", "hogwartsFilter", "aurorFilter"];
+    var sections = ["sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews"];
+
+    for (i = 0; i < cookies.length; i++) {
+        mapButtonToCookie(buttonIDs[i], sections[i], cookies[i]);     // also toggles the cookie
+    }
+}
+
 // function for forwards and backwards buttons of the ticker
 function forwardTicker() {
-    document.getElementById("ticker_marquee").setAttribute('scrollamount', 10);
+    document.getElementById("ticker_marquee").setAttribute('scrollamount', 13);
 }
 
 function reverseTicker() {
-    document.getElementById("ticker_marquee").setAttribute('scrollamount', 10);
+    document.getElementById("ticker_marquee").setAttribute('scrollamount', 13);
     document.getElementById("ticker_marquee").setAttribute('direction', 'right');
 }
 
@@ -62,95 +129,28 @@ function addAllNewsToTicker() {
     refreshTicker();
 }
 
-
 // Filter Buttons
-function toggle_sportNews() {
-    if(sportOn) {
-        sportOn = !sportOn;     // must be called before "removeElementsFromTicker"
-        document.getElementById("sportFilter").setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker("sportNews");
+function toggleButtonAndCookie(id, section, cname) {
+
+    if (getCookie(cname) == "on") {
+        toggleCookie(cname);   // must be called before "removeElementsFromTicker"
+        document.getElementById(id).setAttribute("class", "btn btn-dark");
+        removeElementsFromTicker(section);
     }
     else {
-        sportOn = !sportOn;
-        document.getElementById("sportFilter").setAttribute("class", "btn btn-info");
-        addElementsToTicker("sportNews");
+        toggleCookie(cname);
+        document.getElementById(id).setAttribute("class", "btn btn-info");
+        addElementsToTicker(section);
     }
-
     refreshTicker();
 }
 
-function toggle_spellNews() {
-    if(spellOn) {
-        spellOn = !spellOn;
-        document.getElementById("spellFilter").setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker("spellNews");
-    }
-    else {
-        spellOn = !spellOn;
-        document.getElementById("spellFilter").setAttribute("class", "btn btn-info");
-        addElementsToTicker("spellNews");
-    }
+function mapButtonToCookie(id, section, cname) {
 
-    refreshTicker();
-}
-
-function toggle_muggleNews() {
-    if(muggleOn) {
-        muggleOn = !muggleOn;
-        document.getElementById("muggleFilter").setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker("muggleNews");
+    if (getCookie(cname) == "off") {
+        document.getElementById(id).setAttribute("class", "btn btn-dark");
+        removeElementsFromTicker(section);
     }
-    else {
-        muggleOn = !muggleOn;
-        document.getElementById("muggleFilter").setAttribute("class", "btn btn-info");
-        addElementsToTicker("muggleNews");
-    }
-
-    refreshTicker();
-}
-
-function toggle_politicNews() {
-    if(politicOn) {
-        politicOn = !politicOn;
-        document.getElementById("politicFilter").setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker("politicNews");
-    }
-    else {
-        politicOn = !politicOn;
-        document.getElementById("politicFilter").setAttribute("class", "btn btn-info");
-        addElementsToTicker("politicNews");
-    }
-
-    refreshTicker();
-}
-
-function toggle_hogwartsNews() {
-    if(hogwartsOn) {
-        hogwartsOn = !hogwartsOn;
-        document.getElementById("hogwartsFilter").setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker("hogwartsNews");
-    }
-    else {
-        hogwartsOn = !hogwartsOn;
-        document.getElementById("hogwartsFilter").setAttribute("class", "btn btn-info");
-        addElementsToTicker("hogwartsNews");
-    }
-
-    refreshTicker();
-}
-
-function toggle_aurorNews() {
-    if(aurorOn) {
-        aurorOn = !aurorOn;
-        document.getElementById("aurorFilter").setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker("aurorNews");
-    }
-    else {
-        aurorOn = !aurorOn;
-        document.getElementById("aurorFilter").setAttribute("class", "btn btn-info");
-        addElementsToTicker("aurorNews");
-    }
-
     refreshTicker();
 }
 
@@ -183,22 +183,22 @@ function updateDots() {
 
     var dotHTML = "<span class='dot'></span>";
 
-    if(spellOn) {
-        $(".spellNews").after(dotHTML);
-    }
-    if(sportOn) {
+    if(getCookie("csport") == "on") {
         $(".sportNews").after(dotHTML);
     }
-    if(muggleOn) {
+    if(getCookie("cspell") == "on") {
+        $(".spellNews").after(dotHTML);
+    }
+    if(getCookie("cmuggle") == "on") {
         $(".muggleNews").after(dotHTML);
     }
-    if(politicOn) {
+    if(getCookie("cpolitic") == "on") {
         $(".politicNews").after(dotHTML);
     }
-    if(hogwartsOn) {
+    if(getCookie("chogwarts") == "on") {
         $(".hogwartsNews").after(dotHTML);
     }
-    if(aurorOn) {
+    if(getCookie("cauror") == "on") {
         $(".aurorNews").after(dotHTML);
     }
 }

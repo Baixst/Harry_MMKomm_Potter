@@ -19,7 +19,7 @@
 
     <title>Newsticker</title>
 </head>
-<body>
+<body onload="setFilter();">
 
     <!-- Filter Buttons for ticker-->
     <div class="container mt-5">
@@ -27,12 +27,12 @@
             <div class="col-md-3"></div> <!-- Span 3/12 -->
 
             <div class="col-md-9">       <!-- Span 12/12 -->
-                <button id=sportFilter type="button" class="btn btn-info" onclick="toggle_sportNews();">Sport</button>
-                <button id=spellFilter type="button" class="btn btn-info" onclick="toggle_spellNews();">New Spells</button>
-                <button id=muggleFilter type="button" class="btn btn-info" onclick="toggle_muggleNews();">Muggle-Area</button>
-                <button id=politicFilter type="button" class="btn btn-info" onclick="toggle_politicNews();">Politics</button>
-                <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggle_hogwartsNews();">Hogwarts</button>
-                <button id=aurorFilter type="button" class="btn btn-info" onclick="toggle_aurorNews();">Aurors</button>
+                <button id=sportFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('sportFilter', 'sportNews', 'csport');">Sport</button>
+                <button id=spellFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('spellFilter', 'spellNews', 'cspell');">New Spells</button>
+                <button id=muggleFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('muggleFilter', 'muggleNews', 'cmuggle');">Muggle-Area</button>
+                <button id=politicFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('politicFilter', 'politicNews', 'cpolitic');">Politics</button>
+                <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Hogwarts</button>
+                <button id=aurorFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('aurorFilter', 'aurorNews', 'cauror');">Aurors</button>
             </div>
         </div>
     </div>

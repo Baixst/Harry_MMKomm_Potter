@@ -29,3 +29,16 @@ body {
 .bg-ticker-logo {
     background-color: rgb(136, 96, 48);
 }
+
+.ui-modal__overlay {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(69,69,69,.533333);
+}

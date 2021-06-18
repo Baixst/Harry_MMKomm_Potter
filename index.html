@@ -14,7 +14,13 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-          
+    
+    <!-- Include JQuery CSS and JS for slider -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <!-- Include own CSS -->
     <link rel="stylesheet" href="style.css">
 
@@ -31,12 +37,12 @@
             <div class="col-md-3"></div> <!-- Span 3/12 -->
 
             <div class="col-md-9">       <!-- Span 12/12 -->
-                <button id=sportFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('sportFilter', 'sportNews', 'csport');">Sport</button>
-                <button id=spellFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('spellFilter', 'spellNews', 'cspell');">New Spells</button>
-                <button id=muggleFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('muggleFilter', 'muggleNews', 'cmuggle');">Muggle-Area</button>
-                <button id=politicFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('politicFilter', 'politicNews', 'cpolitic');">Politics</button>
-                <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Hogwarts</button>
-                <button id=aurorFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('aurorFilter', 'aurorNews', 'cauror');">Aurors</button>
+                <button id=sportFilter type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('sportFilter','sportFilter-modal', 'sportNews', 'csport');">Sport</button>
+                <button id=spellFilter type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('spellFilter', 'spellFilter-modal', 'spellNews', 'cspell');">New Spells</button>
+                <button id=muggleFilter type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('muggleFilter', 'muggleFilter-modal', 'muggleNews', 'cmuggle');">Muggle-Area</button>
+                <button id=politicFilter type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('politicFilter', 'politicFilter-modal', 'politicNews', 'cpolitic');">Politics</button>
+                <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('hogwartsFilter', 'hogwartsFilter-modal', 'hogwartsNews', 'chogwarts');">Hogwarts</button>
+                <button id=aurorFilter type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('aurorFilter', 'aurorFilter-modal', 'aurorNews', 'cauror');">Aurors</button>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#filterModal">More Options</button>
@@ -46,16 +52,67 @@
 
     <!-- Modal -->
     <div class="modal" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="filterModalLabel">Filters</h5>
+                <h4 class="modal-title" id="filterModalLabel">Filters</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-              test test test
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <h5>Themes</h5>
+                        </div>                    
+                    </div>
+                    <!-- Theme-->
+                    <div class="row">
+                        <div class="flex-col">       
+                            <button id=sportFilter-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('sportFilter','sportFilter-modal', 'sportNews', 'csport');">Sport</button>
+                            <button id=spellFilter-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('spellFilter', 'spellFilter-modal', 'spellNews', 'cspell');">New Spells</button>
+                            <button id=muggleFilter-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('muggleFilter', 'muggleFilter-modal', 'muggleNews', 'cmuggle');">Muggle-Area</button>
+                            <button id=politicFilter-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('politicFilter', 'politicFilter-modal', 'politicNews', 'cpolitic');">Politics</button>
+                            <button id=hogwartsFilter-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('hogwartsFilter', 'hogwartsFilter-modal', 'hogwartsNews', 'chogwarts');">Hogwarts</button>
+                            <button id=aurorFilter-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('aurorFilter', 'aurorFilter-modal', 'aurorNews', 'cauror');">Aurors</button>
+                            <div class="fltr__dropdown-divider my-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Release Date -->
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <h5>Release Date</h5>
+                        </div>                    
+                    </div>
+                    <div class="row">
+                        <p>
+                            <label for="sliderAmount">Days since release: </label>
+                            <input type="text" id="sliderAmount" readonly>
+                        </p>
+                        <div id="slider-range"></div>
+                        <div class="fltr__dropdown-divider my-2"></div>
+                    </div>
+
+                    <!-- Author-->
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <h5>Author</h5>
+                        </div>                    
+                    </div>
+                    <div class="row">
+                        <div class="flex-col">       
+                            <button id=sportFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('sportFilter', 'sportNews', 'csport');">Kimmkorn</button>
+                            <button id=spellFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('spellFilter', 'spellNews', 'cspell');">Lockhart</button>
+                            <button id=muggleFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('muggleFilter', 'muggleNews', 'cmuggle');">Granger</button>
+                            <button id=politicFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('politicFilter', 'politicNews', 'cpolitic');">Scamander</button>
+                            <button id=hogwartsFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Ministry of Magic</button>
+                            <div class="fltr__dropdown-divider my-2"></div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -42,3 +42,16 @@ body {
     align-items: center;
     background-color: rgba(69,69,69,.533333);
 }
+
+.fltr__dropdown-divider {
+    border-bottom: rgb(120, 120, 120) 1px dotted;
+        border-bottom-color: rgb(120, 120, 120);
+    width: 100%;
+}
+
+#sliderAmount {
+    border:0;
+    width: 10%;
+    color:#977247;
+    font-weight: bold;
+}

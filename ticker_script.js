@@ -145,6 +145,23 @@ function toggleButtonAndCookie(id, section, cname) {
     refreshTicker();
 }
 
+function toggleModalButtonAndCookie(id, id2, section, cname) {
+
+    if (getCookie(cname) == "on") {
+        toggleCookie(cname);   // must be called before "removeElementsFromTicker"
+        document.getElementById(id).setAttribute("class", "btn btn-dark");
+        document.getElementById(id2).setAttribute("class", "btn btn-dark");
+        removeElementsFromTicker(section);
+    }
+    else {
+        toggleCookie(cname);
+        document.getElementById(id).setAttribute("class", "btn btn-info");
+        document.getElementById(id2).setAttribute("class", "btn btn-info");
+        addElementsToTicker(section);
+    }
+    refreshTicker();
+}
+
 function mapButtonToCookie(id, section, cname) {
 
     if (getCookie(cname) == "off") {
@@ -202,3 +219,18 @@ function updateDots() {
         $(".aurorNews").after(dotHTML);
     }
 }
+
+// Slider
+$( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 30,
+      values: [ 0, 20 ],
+      slide: function( event, ui ) {
+        $( "#sliderAmount" ).val( + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      }
+    });
+    $( "#sliderAmount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+      " - " + $( "#slider-range" ).slider( "values", 1 ) );
+  } );

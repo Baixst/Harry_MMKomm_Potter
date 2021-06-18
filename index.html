@@ -62,12 +62,12 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
+                    <!-- Topic-->
                     <div class="row">
                         <div class="col-md mb-2">
-                            <h5>Themes</h5>
+                            <h5>Topic</h5>
                         </div>                    
                     </div>
-                    <!-- Theme-->
                     <div class="row">
                         <div class="flex-col">       
                             <button id=sportFilter-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('sportFilter','sportFilter-modal', 'sportNews', 'csport');">Sport</button>
@@ -103,11 +103,45 @@
                     </div>
                     <div class="row">
                         <div class="flex-col">       
-                            <button id=sportFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('sportFilter', 'sportNews', 'csport');">Kimmkorn</button>
-                            <button id=spellFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('spellFilter', 'spellNews', 'cspell');">Lockhart</button>
-                            <button id=muggleFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('muggleFilter', 'muggleNews', 'cmuggle');">Granger</button>
-                            <button id=politicFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('politicFilter', 'politicNews', 'cpolitic');">Scamander</button>
-                            <button id=hogwartsFilter-modal type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Ministry of Magic</button>
+                            <button id=sportFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('sportFilter', 'sportNews', 'csport');">Kimmkorn</button>
+                            <button id=spellFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('spellFilter', 'spellNews', 'cspell');">Lockhart</button>
+                            <button id=muggleFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('muggleFilter', 'muggleNews', 'cmuggle');">Granger</button>
+                            <button id=politicFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('politicFilter', 'politicNews', 'cpolitic');">Scamander</button>
+                            <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Ministry of Magic</button>
+                            <div class="fltr__dropdown-divider my-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Length-->
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <h5>Article Length</h5>
+                        </div>                    
+                    </div>
+                    <div class="row">
+                        <div class="flex-col">       
+                            <button id=sportFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('sportFilter', 'sportNews', 'csport');">short</button>
+                            <button id=spellFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('spellFilter', 'spellNews', 'cspell');">medium</button>
+                            <button id=muggleFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('muggleFilter', 'muggleNews', 'cmuggle');">long</button>
+                            <div class="fltr__dropdown-divider my-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Location-->
+                    <div class="row">
+                        <div class="col-md mb-2">
+                            <h5>Author</h5>
+                        </div>                    
+                    </div>
+                    <div class="row">
+                        <div class="flex-col">       
+                            <button id=sportFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('sportFilter', 'sportNews', 'csport');">London</button>
+                            <button id=spellFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('spellFilter', 'spellNews', 'cspell');">Hogwarts</button>
+                            <button id=muggleFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('muggleFilter', 'muggleNews', 'cmuggle');">UK</button>
+                            <button id=politicFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('politicFilter', 'politicNews', 'cpolitic');">USA</button>
+                            <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Europe</button>
+                            <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Asia</button>
+                            <button id=hogwartsFilter type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsFilter', 'hogwartsNews', 'chogwarts');">Northpole</button>
                             <div class="fltr__dropdown-divider my-2"></div>
                         </div>
                     </div>

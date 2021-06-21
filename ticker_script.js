@@ -13,34 +13,39 @@ const buttonIDs = ["sportBtn", "spellBtn", "muggleBtn", "politicBtn", "hogwartsB
                    "shortBtn", "mediumBtn", "longBtn",
                    "londonBtn", "hogwartsLocBtn", "ukBtn", "usaBtn", "euBtn", "asiaBtn", "northpoleBtn"];
 
-const headlineClasses = ["sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews",
-                         "sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews", //two times because topic buttons exist twice
-                         "kimmkorn", "lockhart", "granger", "scamander", "ministry",
-                         "short", "medium", "long",
-                         "london", "hogwartsLoc", "uk", "usa", "eu", "asia", "northpole"];
-                        
-
-// some example headlines
-var headline1 = {title:" Firebolt now deals 3d10 damage!", link:"#", topic:"spellNews", author:"kimmkorn", artLength:"short", location:"london"};
-var headline2 = {title:" Tasha's Mind Whip", link:"#", topic:"spellNews", author:"kimmkorn", artLength:"short", location:"london"};
-var headline3 = {title:" Mass Healing Word invented.", link:"#", topic:"spellNews", author:"kimmkorn", artLength:"short", location:"london"};
-
-var headline4 = {title:" Broken arms are the most common injury.", link:"#", topic:"sportNews", author:"kimmkorn", artLength:"short", location:"london"};
-var headline5 = {title:" Top 5 Plays of the World Cup.", link:"#", topic:"sportNews", author:"lockhart", artLength:"medium", location:"london"};
-var headline6 = {title:" Broom flies without wizard!", link:"#", topic:"sportNews", author:"lockhart", artLength:"medium", location:"london"};
-
-var headline7 = {title:" Study shows: Muggles like Spongebob Squarepants.", link:"#", topic:"muggleNews", author:"lockhart", artLength:"medium", location:"london"};
-var headline8 = {title:" Trump banned from Twitter.", link:"#", topic:"muggleNews", author:"lockhart", artLength:"long", location:"london"};
-
-var headline9 = {title:" Hedwig for president!!!", link:"#", topic:"politicNews", author:"lockhart", artLength:"long", location:"london"};
-
-var headline10 = {title:" Explosion in Hufflepuff dorm", link:"#", topic:"hogwartsNews", author:"lockhart", artLength:"long", location:"london"};
-
-var headline11 = {title:" \"Aurors are underpayed\" says Harry Potter", link:"#", topic:"aurorNews", author:"lockhart", artLength:"long", location:"london"};
+const headlineClasses = ["sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews", // possible topics
+                         "sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews", // two times because topic buttons exist twice
+                         "kimmkorn", "lockhart", "granger", "scamander", "ministry",                         // possible locations
+                         "short", "medium", "long",                                                          // possible length
+                         "london", "hogwartsLoc", "uk", "usa", "eu", "asia", "northpole"];                   // possible locations
 
 // array with all headlines
-var headlines = [headline1, headline2, headline3, headline4, headline5, headline6, headline7, headline8,
-                 headline9, headline10, headline11];
+var headlines = [];
+
+// write all headlines in here (leave one space before title)
+function createAllHeadlines() {
+
+    // Format: Title, Link, Topic, Author, Length, Location
+    addHeadline(" Firebolt now deals 3d10 damage!", "#", "spellNews", "ministry", "short", "london");
+    addHeadline(" Tasha's Mind Whip", "#", "spellNews", "kimmkorn", "short", "asia");
+    addHeadline(" Mass Healing Word invented.", "#", "spellNews", "kimmkorn", "short", "eu");
+
+    addHeadline(" Broken arms are the most common injury.", "#", "sportNews", "kimmkorn", "short", "london");
+    addHeadline(" Top 5 Plays of the World Cup", "#", "sportNews", "lockhart", "short", "london");
+    addHeadline(" Study shows: Muggles like Spongebob Squarepants.", "#", "sportNews", "ministry", "short", "usa");
+
+    addHeadline(" Trump banned from Twitter.", "#", "muggleNews", "lockhart", "short", "usa");
+    addHeadline(" Hedwig for president!!!", "#", "muggleNews", "ministry", "short", "hogwartsLoc");
+
+    addHeadline(" Explosion in Hufflepuff dorm", "#", "politicNews", "scamander", "short", "hogwartsLoc");
+
+    addHeadline(" \"Aurors are underpayed\" says Harry Potter", "#", "aurorNews", "granger", "short", "northpole");
+}
+
+function addHeadline(HTitle, HLink, HTopic, HAuthor, HArtLength, HLocation) {
+    var newHeadline = {title: HTitle, link: HLink, topic: HTopic, author: HAuthor, artLength: HArtLength, location: HLocation};
+    headlines.push(newHeadline);
+}
 
 // functions for cookie management
 function setCookie(cname, cvalue, exdays) {
@@ -117,6 +122,7 @@ function deleteCookies() {
     document.cookie = "cuk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "cusa=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "ceu=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "casia=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "cnorthpole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     document.cookie = "undefined=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -124,6 +130,8 @@ function deleteCookies() {
 
 // Initialize News Ticker with all headlines
 function addAllNewsToTicker() {
+
+    createAllHeadlines();
     
     var elementToAdd;
     

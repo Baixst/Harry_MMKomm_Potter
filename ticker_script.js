@@ -1,22 +1,42 @@
+var currentID = 1; //used in addElementToTicker function
+
 const COOKIE_EXDAYS = 1;
+const cookies = ["csport", "cspell", "cmuggle", "cpolitic", "chogwarts", "cauror",
+                 "csport-modal", "cspell-modal", "cmuggle-modal", "cpolitic-modal", "chogwarts-modal", "cauror-modal",
+                 "ckimmkorn", "clockhart", "cgranger", "cscamander", "cministry",
+                 "cshort", "cmedium", "clong",
+                 "clondon", "chogwartsLoc", "cuk", "cusa", "ceu", "casia", "cnorthpole"];
+
+const buttonIDs = ["sportBtn", "spellBtn", "muggleBtn", "politicBtn", "hogwartsBtn", "aurorBtn",
+                   "sportBtn-modal", "spellBtn-modal", "muggleBtn-modal", "politicBtn-modal", "hogwartsBtn-modal", "aurorBtn-modal",
+                   "kimmkornBtn", "lockhartBtn", "grangerBtn", "scamanderBtn", "ministryBtn",
+                   "shortBtn", "mediumBtn", "longBtn",
+                   "londonBtn", "hogwartsLocBtn", "ukBtn", "usaBtn", "euBtn", "asiaBtn", "northpoleBtn"];
+
+const headlineClasses = ["sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews",
+                         "sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews", //two times because topic buttons exist twice
+                         "kimmkorn", "lockhart", "granger", "scamander", "ministry",
+                         "short", "medium", "long",
+                         "london", "hogwartsLoc", "uk", "usa", "eu", "asia", "northpole"];
+                        
 
 // some example headlines
-var headline1 = {title:" Firebolt now deals 3d10 damage!", link:"#", section:"spellNews"};
-var headline2 = {title:" Tasha's Mind Whip", link:"#", section:"spellNews"};
-var headline3 = {title:" Mass Healing Word invented.", link:"#", section:"spellNews"};
+var headline1 = {title:" Firebolt now deals 3d10 damage!", link:"#", topic:"spellNews", author:"kimmkorn", artLength:"short", location:"london"};
+var headline2 = {title:" Tasha's Mind Whip", link:"#", topic:"spellNews", author:"kimmkorn", artLength:"short", location:"london"};
+var headline3 = {title:" Mass Healing Word invented.", link:"#", topic:"spellNews", author:"kimmkorn", artLength:"short", location:"london"};
 
-var headline4 = {title:" Broken arms are the most common injury.", link:"#", section:"sportNews"};
-var headline5 = {title:" Top 5 Plays of the World Cup.", link:"#", section:"sportNews"};
-var headline6 = {title:" Broom flies without wizard!", link:"#", section:"sportNews"};
+var headline4 = {title:" Broken arms are the most common injury.", link:"#", topic:"sportNews", author:"kimmkorn", artLength:"short", location:"london"};
+var headline5 = {title:" Top 5 Plays of the World Cup.", link:"#", topic:"sportNews", author:"lockhart", artLength:"medium", location:"london"};
+var headline6 = {title:" Broom flies without wizard!", link:"#", topic:"sportNews", author:"lockhart", artLength:"medium", location:"london"};
 
-var headline7 = {title:" Study shows: Muggles like Spongebob Squarepants.", link:"#", section:"muggleNews"};
-var headline8 = {title:" Trump banned from Twitter.", link:"#", section:"muggleNews"};
+var headline7 = {title:" Study shows: Muggles like Spongebob Squarepants.", link:"#", topic:"muggleNews", author:"lockhart", artLength:"medium", location:"london"};
+var headline8 = {title:" Trump banned from Twitter.", link:"#", topic:"muggleNews", author:"lockhart", artLength:"long", location:"london"};
 
-var headline9 = {title:" Hedwig for president!!!", link:"#", section:"politicNews"};
+var headline9 = {title:" Hedwig for president!!!", link:"#", topic:"politicNews", author:"lockhart", artLength:"long", location:"london"};
 
-var headline10 = {title:" Explosion in Hufflepuff dorm", link:"#", section:"hogwartsNews"};
+var headline10 = {title:" Explosion in Hufflepuff dorm", link:"#", topic:"hogwartsNews", author:"lockhart", artLength:"long", location:"london"};
 
-var headline11 = {title:" \"Aurors are underpayed\" says Harry Potter", link:"#", section:"aurorNews"};
+var headline11 = {title:" \"Aurors are underpayed\" says Harry Potter", link:"#", topic:"aurorNews", author:"lockhart", artLength:"long", location:"london"};
 
 // array with all headlines
 var headlines = [headline1, headline2, headline3, headline4, headline5, headline6, headline7, headline8,
@@ -51,12 +71,10 @@ function checkCookies() {
     //create cookies if they don't exist yet
     if(document.cookie == "") {
         console.log("no cookies are set");
-        setCookie("csport", "on", COOKIE_EXDAYS);
-        setCookie("cspell", "on", COOKIE_EXDAYS);
-        setCookie("cmuggle", "on", COOKIE_EXDAYS);
-        setCookie("cpolitic", "on", COOKIE_EXDAYS);
-        setCookie("chogwarts", "on", COOKIE_EXDAYS);
-        setCookie("cauror", "on", COOKIE_EXDAYS);
+
+        for(var i = 0; i < cookies.length; i++) {
+            setCookie(cookies[i], "on", COOKIE_EXDAYS);
+        }
     }
     console.log(document.cookie);
 }
@@ -77,7 +95,53 @@ function deleteCookies() {
     document.cookie = "cpolitic=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "chogwarts=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "cauror=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    document.cookie = "csport-modal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cspell-modal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cmuggle-modal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cpolitic-modal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "chogwarts-modal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cauror-modal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    document.cookie = "ckimmkorn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "clockhart=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cgranger=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cscamander=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cministry=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cshort=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cmedium=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "clong=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    document.cookie = "clondon=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "chogwartsLoc=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cuk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cusa=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "ceu=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cnorthpole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
     document.cookie = "undefined=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// Initialize News Ticker with all headlines
+function addAllNewsToTicker() {
+    
+    var elementToAdd;
+    
+    for (i = 0; i < headlines.length; i++){
+        elementToAdd = "<a id=" + currentID + " " + "class=" + headlines[i].topic  + " " + "href=" + headlines[i].link + ">" + headlines[i].title + " </a>";
+
+        $("#ticker_marquee").append(elementToAdd);
+
+        var IDString = "#" + currentID;
+        $(IDString).addClass(headlines[i].author);
+        $(IDString).addClass(headlines[i].artLength);
+        $(IDString).addClass(headlines[i].location);
+        currentID++;
+
+        $("#ticker_marquee").append($("<span>", { class: "dot"}));
+    }
+    
+    refreshTicker();
 }
 
 // get called right after page finished loading
@@ -86,120 +150,91 @@ function setFilter() {
     checkCookies();
     //deleteCookies();
 
-    var cookies = ["csport", "cspell", "cmuggle", "cpolitic", "chogwarts", "cauror"];
-    var buttonIDs = ["sportFilter", "spellFilter", "muggleFilter", "politicFilter", "hogwartsFilter", "aurorFilter"];
-    var sections = ["sportNews", "spellNews", "muggleNews", "politicNews", "hogwartsNews", "aurorNews"];
-
     for (i = 0; i < cookies.length; i++) {
-        mapButtonToCookie(buttonIDs[i], sections[i], cookies[i]);     // also toggles the cookie
+        mapButtonToCookie(buttonIDs[i], headlineClasses[i], cookies[i]);     // also toggles the cookie
     }
-}
-
-// function for forwards and backwards buttons of the ticker
-function forwardTicker() {
-    document.getElementById("ticker_marquee").setAttribute('scrollamount', 13);
-}
-
-function reverseTicker() {
-    document.getElementById("ticker_marquee").setAttribute('scrollamount', 13);
-    document.getElementById("ticker_marquee").setAttribute('direction', 'right');
-}
-
-function resetTicker() {
-    document.getElementById("ticker_marquee").setAttribute('scrollamount', 3);
-    document.getElementById("ticker_marquee").setAttribute('direction', 'left');
-}
-
-function refreshTicker() {
-    document.getElementById("ticker_marquee").setAttribute('direction', 'right');
-    document.getElementById("ticker_marquee").setAttribute('direction', 'left');
-}
-
-// Initialize News Ticker with all headlines
-function addAllNewsToTicker() {
-    var elementToAdd;
-
-    for (i = 0; i < headlines.length; i++){
-        elementToAdd = "<a class=" + headlines[i].section + " " + "href=" + headlines[i].link + ">" + headlines[i].title + " </a>";
-        $("#ticker_marquee").append(elementToAdd);
-
-        $("#ticker_marquee").append($("<span>", { class: "dot"}));
-    }
-
-    refreshTicker();
 }
 
 // Filter Buttons
-function toggleButtonAndCookie(id, section, cname) {
-
+function toggleButtonAndCookie(id, headlineClass, cname) {
+    
     if (getCookie(cname) == "on") {
         toggleCookie(cname);   // must be called before "removeElementsFromTicker"
         document.getElementById(id).setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker(section);
+        removeElementsFromTicker(headlineClass);
     }
     else {
         toggleCookie(cname);
         document.getElementById(id).setAttribute("class", "btn btn-info");
-        addElementsToTicker(section);
+        addElementsToTicker(headlineClass);
     }
     refreshTicker();
 }
 
-function toggleModalButtonAndCookie(id, id2, section, cname) {
-
+function toggleModalButtonAndCookie(id, id2, headlineClass, cname, cname2) {
+    
     if (getCookie(cname) == "on") {
         toggleCookie(cname);   // must be called before "removeElementsFromTicker"
+        toggleCookie(cname2);
         document.getElementById(id).setAttribute("class", "btn btn-dark");
         document.getElementById(id2).setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker(section);
+        removeElementsFromTicker(headlineClass);
     }
     else {
         toggleCookie(cname);
+        toggleCookie(cname2);
         document.getElementById(id).setAttribute("class", "btn btn-info");
         document.getElementById(id2).setAttribute("class", "btn btn-info");
-        addElementsToTicker(section);
+        addElementsToTicker(headlineClass);
     }
     refreshTicker();
 }
 
-function mapButtonToCookie(id, section, cname) {
-
+function mapButtonToCookie(id, headlineClass, cname) {
+    
     if (getCookie(cname) == "off") {
         document.getElementById(id).setAttribute("class", "btn btn-dark");
-        removeElementsFromTicker(section);
+        removeElementsFromTicker(headlineClass);
     }
     refreshTicker();
 }
 
 // add and remove elements to/from the ticker
-function addElementsToTicker(newsSection) {
-
+function addElementsToTicker(headlineClass) {
+    
     var elementToAdd;
-
+    
     for (i = 0; i < headlines.length; i++){
-        if (headlines[i].section == newsSection) {
-            elementToAdd = "<a class=" + headlines[i].section + " " + "href=" + headlines[i].link + ">" + headlines[i].title + " </a>";
-            $("#ticker_marquee").append(elementToAdd);
+        if (headlines[i].topic == headlineClass || headlines[i].author == headlineClass || headlines[i].artLength == headlineClass || headlines[i].location == headlineClass) {
+            elementToAdd = "<a id=" + currentID + " " + "class=" + headlines[i].topic  + " " + "href=" + headlines[i].link + ">" + headlines[i].title + " </a>";
 
-            $("#ticker_marquee").append($("<span>", { class: "dot"}));
+        $("#ticker_marquee").append(elementToAdd);
+
+        var IDString = "#" + currentID;
+        $(IDString).addClass(headlines[i].author);
+        $(IDString).addClass(headlines[i].artLength);
+        $(IDString).addClass(headlines[i].location);
+        currentID++;
+
+        $("#ticker_marquee").append($("<span>", { class: "dot"}));
         }
     }
 }
 
-function removeElementsFromTicker(newsSection) {
-
-    var classToRemove = " ." + newsSection;
+function removeElementsFromTicker(classToRemove) {
+    
+    classToRemove = " ." + classToRemove;
     $(classToRemove).remove();
-
+    
     // delete all dots that were between removed headlines
     updateDots();
 }
 
 function updateDots() {
     $(".dot").remove();
-
+    
     var dotHTML = "<span class='dot'></span>";
-
+    
     if(getCookie("csport") == "on") {
         $(".sportNews").after(dotHTML);
     }
@@ -223,14 +258,34 @@ function updateDots() {
 // Slider
 $( function() {
     $( "#slider-range" ).slider({
-      range: true,
-      min: 0,
-      max: 30,
-      values: [ 0, 20 ],
-      slide: function( event, ui ) {
-        $( "#sliderAmount" ).val( + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-      }
+        range: true,
+        min: 0,
+        max: 30,
+        values: [ 0, 20 ],
+        slide: function( event, ui ) {
+            $( "#sliderAmount" ).val( + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+        }
     });
     $( "#sliderAmount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
-      " - " + $( "#slider-range" ).slider( "values", 1 ) );
-  } );
+    " - " + $( "#slider-range" ).slider( "values", 1 ) );
+} );
+
+// function for forwards and backwards buttons of the ticker
+function forwardTicker() {
+    document.getElementById("ticker_marquee").setAttribute('scrollamount', 13);
+}
+
+function reverseTicker() {
+    document.getElementById("ticker_marquee").setAttribute('scrollamount', 13);
+    document.getElementById("ticker_marquee").setAttribute('direction', 'right');
+}
+
+function resetTicker() {
+    document.getElementById("ticker_marquee").setAttribute('scrollamount', 3);
+    document.getElementById("ticker_marquee").setAttribute('direction', 'left');
+}
+
+function refreshTicker() {
+    document.getElementById("ticker_marquee").setAttribute('direction', 'right');
+    document.getElementById("ticker_marquee").setAttribute('direction', 'left');
+}

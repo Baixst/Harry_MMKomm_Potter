@@ -1,5 +1,6 @@
 body {
-    background-image: url('https://www.iwantwallpaper.co.uk/images/harry-potter-daily-prophet-newspaper-wizard-poster-mono-wallpaper-p6355-17840_image.jpg');
+    background-image: url('Background_V1.png');
+    background-size: cover;
 }
 
 .news {
@@ -7,8 +8,9 @@ body {
 }
 
 .news-scroll {
-    margin-top: 3px;
-    margin-bottom: 3px;
+    background-image: url('Trenner_Headlines.png');
+    margin-top: 3px; 
+    margin-bottom: 3px; 
 }
 
 .news-scroll a {
@@ -54,4 +56,93 @@ body {
     width: 10%;
     color:#977247;
     font-weight: bold;
+}
+
+.btn-sport {
+    background-image: url('Sport.png');
+    background-size: cover;
+    width: 10%;
+    height: 100px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-spell {
+    background-image: url('New\ Spells.png');
+    background-size: cover;
+    width: 12%;
+    height: 110px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-muggle {
+    background-image: url('Muggle\ Area.png');
+    background-size: cover;
+    width: 12%;
+    height: 100px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-politic {
+    background-image: url('Politics.png');
+    background-size: cover;
+    width: 09%;
+    height: 100px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-hogwarts {
+    background-image: url('Hogwarts.png');
+    background-size: cover;
+    width: 10%;
+    height: 100px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-auror {
+    background-image: url('Aurors.png');
+    background-size: cover;
+    width: 08%;
+    height: 100px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-options {
+    background-image: url('More.png');
+    background-size: cover;
+    width: 10%;
+    height: 115px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-forward {
+    background-image: url('Forward\ Button.png');
+    background-size: cover;
+    width: 50%;
+    height: 20px;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.btn-backward {
+    background-image: url('Backward\ Button.png');
+    background-size: cover;
+    width: 50%;
+    height: 10%;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
+.filter-on {
+    filter: brightness(1);
+}
+
+.filter-off {
+    filter: brightness(0.5);
 }

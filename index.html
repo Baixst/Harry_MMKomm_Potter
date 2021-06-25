@@ -34,19 +34,20 @@
     <!-- Filter Buttons for ticker-->
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-3"></div> <!-- Span 3/12 -->
+            <div class="col-md-2"></div> <!-- Span 3/12 -->
 
-            <div class="col-md-9">       <!-- Span 12/12 -->
-                <button id=sportBtn type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('sportBtn','sportBtn-modal', 'sportNews', 'csport', 'csport-modal');">Sport</button>
-                <button id=spellBtn type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('spellBtn', 'spellBtn-modal', 'spellNews', 'cspell', 'cspell-modal');">New Spells</button>
-                <button id=muggleBtn type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('muggleBtn', 'muggleBtn-modal', 'muggleNews', 'cmuggle', 'cmuggle-modal');">Muggle-Area</button>
-                <button id=politicBtn type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('politicBtn', 'politicBtn-modal', 'politicNews', 'cpolitic', 'cpolitic-modal');">Politics</button>
-                <button id=hogwartsBtn type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('hogwartsBtn', 'hogwartsBtn-modal', 'hogwartsNews', 'chogwarts', 'chogwarts-modal');">Hogwarts</button>
-                <button id=aurorBtn type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('aurorBtn', 'aurorBtn-modal', 'aurorNews', 'cauror', 'cauror-modal');">Aurors</button>
+            <div class="col-md-10">       <!-- Span 12/12 -->
+                <button id=sportBtn type="button" class="btn btn-sport filter-on" onclick="toggleModalButtonAndCookie('sportBtn','sportBtn-modal', 'sportNews', 'csport', 'csport-modal');"></button>
+                <button id=spellBtn type="button" class="btn btn-spell filter-on" onclick="toggleModalButtonAndCookie('spellBtn', 'spellBtn-modal', 'spellNews', 'cspell', 'cspell-modal');"></button>
+                <button id=muggleBtn type="button" class="btn btn-muggle filter-on" onclick="toggleModalButtonAndCookie('muggleBtn', 'muggleBtn-modal', 'muggleNews', 'cmuggle', 'cmuggle-modal');"></button>
+                <button id=politicBtn type="button" class="btn btn-politic filter-on" onclick="toggleModalButtonAndCookie('politicBtn', 'politicBtn-modal', 'politicNews', 'cpolitic', 'cpolitic-modal');"></button>
+                <button id=hogwartsBtn type="button" class="btn btn-hogwarts filter-on" onclick="toggleModalButtonAndCookie('hogwartsBtn', 'hogwartsBtn-modal', 'hogwartsNews', 'chogwarts', 'chogwarts-modal');"></button>
+                <button id=aurorBtn type="button" class="btn btn-auror filter-on" onclick="toggleModalButtonAndCookie('aurorBtn', 'aurorBtn-modal', 'aurorNews', 'cauror', 'cauror-modal');"></button>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#filterModal">More Options</button>
+                <button type="button" class="btn btn-options" data-toggle="modal" data-target="#filterModal"></button>
             </div>
+            <div class="col-md-0"></div> <!-- Span 3/12 -->
         </div>
     </div>
 
@@ -160,7 +161,7 @@
     <!-- Newsticker-->
     <div class="container mt-2">
         <div class="row">
-            <div class="col-md-10"> <!-- Span 10/12 -->
+            <div class="col-md-9"> <!-- Span 10/12 -->
                 <div class="d-flex justify-content-between align-items-center breaking-news bg-white border border-dark">
                     <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-ticker-logo py-2 text-white px-1 news">
                             <span class="d-flex align-items-center">Latest News</span>
@@ -174,11 +175,10 @@
             </div>
 
               <!-- Add forwards and backwards buttons-->
-            <div class ="col-md-2"> <!-- Span 12/12 -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary" onmousedown="forwardTicker();" onmouseup="resetTicker();">forward</button>
-                    <button type="button" class="btn btn-primary"onmousedown="reverseTicker();" onmouseup="resetTicker();">backward</button>
-                </div>
+            <div class ="col-md-3"> <!-- Span 12/12 -->
+                    <button type="button" class="btn btn-forward" onmousedown="forwardTicker();" onmouseup="resetTicker();"></button>
+                    <button type="button" class="btn btn-backward"onmousedown="reverseTicker();" onmouseup="resetTicker();"></button>
+                
             </div>
         </div>
     </div>

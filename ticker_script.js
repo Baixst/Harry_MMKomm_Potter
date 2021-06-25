@@ -184,14 +184,24 @@ function toggleModalButtonAndCookie(id, id2, headlineClass, cname, cname2) {
     if (getCookie(cname) == "on") {
         toggleCookie(cname);   // must be called before "removeElementsFromTicker"
         toggleCookie(cname2);
-        document.getElementById(id).setAttribute("class", "btn btn-dark");
+
+        var currentClass = document.getElementById(id).getAttribute('class');
+        var classes = currentClass.split(" ");
+        newClass = classes[0] + " " + classes[1] + " filter-off";
+
+        document.getElementById(id).setAttribute("class", newClass);
         document.getElementById(id2).setAttribute("class", "btn btn-dark");
         removeElementsFromTicker(headlineClass);
     }
     else {
         toggleCookie(cname);
         toggleCookie(cname2);
-        document.getElementById(id).setAttribute("class", "btn btn-info");
+
+        var currentClass = document.getElementById(id).getAttribute('class');
+        var classes = currentClass.split(" ");
+        newClass = classes[0] + " " + classes[1] + " filter-on";
+
+        document.getElementById(id).setAttribute("class", newClass);
         document.getElementById(id2).setAttribute("class", "btn btn-info");
         addElementsToTicker(headlineClass);
     }
@@ -201,7 +211,18 @@ function toggleModalButtonAndCookie(id, id2, headlineClass, cname, cname2) {
 function mapButtonToCookie(id, headlineClass, cname) {
     
     if (getCookie(cname) == "off") {
-        document.getElementById(id).setAttribute("class", "btn btn-dark");
+
+        var currentClass = document.getElementById(id).getAttribute('class');
+        var classes = currentClass.split(" ");
+        
+        if(classes.length == 3) {
+            var newClass = classes[0] + " " + classes[1] + " filter-off";
+            document.getElementById(id).setAttribute("class", newClass);
+        }
+        else {
+            document.getElementById(id).setAttribute("class", "btn btn-dark");
+        }
+
         removeElementsFromTicker(headlineClass);
     }
     refreshTicker();

@@ -19,6 +19,9 @@ const headlineClasses = ["sportNews", "spellNews", "muggleNews", "politicNews", 
                          "short", "medium", "long",                                                          // possible length
                          "london", "hogwartsLoc", "uk", "usa", "eu", "asia", "northpole"];                   // possible locations
 
+var slider_low;
+var slider_high;
+
 // array with all headlines
 var headlines = [];
 
@@ -80,7 +83,13 @@ function checkCookies() {
         for(var i = 0; i < cookies.length; i++) {
             setCookie(cookies[i], "on", COOKIE_EXDAYS);
         }
+        setCookie("cslider_low", "10", COOKIE_EXDAYS);
+        setCookie("cslider_high", "25", COOKIE_EXDAYS);
     }
+
+    slider_low = getCookie("cslider_low");
+    slider_high = getCookie("cslider_high");
+
     console.log(document.cookie);
 }
 
@@ -125,6 +134,9 @@ function deleteCookies() {
     document.cookie = "casia=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "cnorthpole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
+    document.cookie = "cslider_low=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "cslider_high=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
     document.cookie = "undefined=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
@@ -154,8 +166,7 @@ function addAllNewsToTicker() {
 
 // get called right after page finished loading
 function setFilter() {
-    
-    checkCookies();
+
     //deleteCookies();
 
     for (i = 0; i < cookies.length; i++) {
@@ -290,9 +301,11 @@ $( function() {
         range: true,
         min: 0,
         max: 30,
-        values: [ 0, 20 ],
+        values: [ slider_low, slider_high ],
         slide: function( event, ui ) {
             $( "#sliderAmount" ).val( + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+            setCookie("cslider_low", ui.values[0]);
+            setCookie("cslider_high", ui.values[1]);
         }
     });
     $( "#sliderAmount" ).val( $( "#slider-range" ).slider( "values", 0 ) +

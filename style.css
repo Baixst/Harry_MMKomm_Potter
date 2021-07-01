@@ -8,7 +8,6 @@ body {
 }
 
 .news-scroll {
-    background-image: url('Trenner_Headlines.png');
     margin-top: 3px; 
     margin-bottom: 3px; 
 }
@@ -139,8 +138,12 @@ body {
     padding-bottom: 50px;
 }
 
-.filter-on {
+.filter-default {
     filter: brightness(1);
+}
+
+.filter-on {
+    filter: brightness(1.3)
 }
 
 .filter-off {

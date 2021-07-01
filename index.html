@@ -36,20 +36,19 @@
     <!-- Filter Buttons for ticker-->
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-2"></div> <!-- Span 3/12 -->
+            <div class="col-md-2"></div> <!-- Span 2/12 -->
 
             <div class="col-md-10">       <!-- Span 12/12 -->
-                <button id=sportBtn type="button" class="btn btn-sport filter-on" onclick="toggleModalButtonAndCookie('sportBtn','sportBtn-modal', 'sportNews', 'csport', 'csport-modal');"></button>
-                <button id=spellBtn type="button" class="btn btn-spell filter-on" onclick="toggleModalButtonAndCookie('spellBtn', 'spellBtn-modal', 'spellNews', 'cspell', 'cspell-modal');"></button>
-                <button id=muggleBtn type="button" class="btn btn-muggle filter-on" onclick="toggleModalButtonAndCookie('muggleBtn', 'muggleBtn-modal', 'muggleNews', 'cmuggle', 'cmuggle-modal');"></button>
-                <button id=politicBtn type="button" class="btn btn-politic filter-on" onclick="toggleModalButtonAndCookie('politicBtn', 'politicBtn-modal', 'politicNews', 'cpolitic', 'cpolitic-modal');"></button>
-                <button id=hogwartsBtn type="button" class="btn btn-hogwarts filter-on" onclick="toggleModalButtonAndCookie('hogwartsBtn', 'hogwartsBtn-modal', 'hogwartsNews', 'chogwarts', 'chogwarts-modal');"></button>
-                <button id=aurorBtn type="button" class="btn btn-auror filter-on" onclick="toggleModalButtonAndCookie('aurorBtn', 'aurorBtn-modal', 'aurorNews', 'cauror', 'cauror-modal');"></button>
+                <button id=sportBtn type="button" class="btn btn-sport filter-default" onclick="toggleModalButtonAndCookie('sportBtn','sportBtn-modal', 'csport', 'csport-modal');"></button>
+                <button id=spellBtn type="button" class="btn btn-spell filter-default" onclick="toggleModalButtonAndCookie('spellBtn', 'spellBtn-modal', 'cspell', 'cspell-modal');"></button>
+                <button id=muggleBtn type="button" class="btn btn-muggle filter-default" onclick="toggleModalButtonAndCookie('muggleBtn', 'muggleBtn-modal', 'cmuggle', 'cmuggle-modal');"></button>
+                <button id=politicBtn type="button" class="btn btn-politic filter-default" onclick="toggleModalButtonAndCookie('politicBtn', 'politicBtn-modal', 'cpolitic', 'cpolitic-modal');"></button>
+                <button id=hogwartsBtn type="button" class="btn btn-hogwarts filter-default" onclick="toggleModalButtonAndCookie('hogwartsBtn', 'hogwartsBtn-modal', 'chogwarts', 'chogwarts-modal');"></button>
+                <button id=aurorBtn type="button" class="btn btn-auror filter-default" onclick="toggleModalButtonAndCookie('aurorBtn', 'aurorBtn-modal', 'cauror', 'cauror-modal');"></button>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-options" data-toggle="modal" data-target="#filterModal"></button>
-            </div>
-            <div class="col-md-0"></div> <!-- Span 3/12 -->
+                <button type="button" class="btn btn-options" data-toggle="modal" data-target="#filterModal"></button>            </div>
+            <div class="col-md-0"></div> <!-- idfk -->
         </div>
     </div>
 
@@ -73,12 +72,12 @@
                     </div>
                     <div class="row">
                         <div class="flex-col">       
-                            <button id=sportBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('sportBtn','sportBtn-modal', 'sportNews', 'csport', 'csport-modal');">Sport</button>
-                            <button id=spellBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('spellBtn', 'spellBtn-modal', 'spellNews', 'cspell', 'cspell-modal');">New Spells</button>
-                            <button id=muggleBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('muggleBtn', 'muggleBtn-modal', 'muggleNews', 'cmuggle', 'cmuggle-modal');">Muggle-Area</button>
-                            <button id=politicBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('politicBtn', 'politicBtn-modal', 'politicNews', 'cpolitic', 'cpolitic-modal');">Politics</button>
-                            <button id=hogwartsBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('hogwartsBtn', 'hogwartsBtn-modal', 'hogwartsNews', 'chogwarts', 'chogwarts-modal');">Hogwarts</button>
-                            <button id=aurorBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('aurorBtn', 'aurorBtn-modal', 'aurorNews', 'cauror', 'cauror-modal');">Aurors</button>
+                            <button id=sportBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('sportBtn','sportBtn-modal', 'csport', 'csport-modal');">Sport</button>
+                            <button id=spellBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('spellBtn', 'spellBtn-modal', 'cspell', 'cspell-modal');">New Spells</button>
+                            <button id=muggleBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('muggleBtn', 'muggleBtn-modal', 'cmuggle', 'cmuggle-modal');">Muggle-Area</button>
+                            <button id=politicBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('politicBtn', 'politicBtn-modal', 'cpolitic', 'cpolitic-modal');">Politics</button>
+                            <button id=hogwartsBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('hogwartsBtn', 'hogwartsBtn-modal', 'chogwarts', 'chogwarts-modal');">Hogwarts</button>
+                            <button id=aurorBtn-modal type="button" class="btn btn-info" onclick="toggleModalButtonAndCookie('aurorBtn', 'aurorBtn-modal', 'cauror', 'cauror-modal');">Aurors</button>
                             <div class="fltr__dropdown-divider my-2"></div>
                         </div>
                     </div>
@@ -106,11 +105,11 @@
                     </div>
                     <div class="row">
                         <div class="flex-col">       
-                            <button id=kimmkornBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('kimmkornBtn', 'kimmkorn', 'ckimmkorn');">Kimmkorn</button>
-                            <button id=lockhartBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('lockhartBtn', 'lockhart', 'clockhart');">Lockhart</button>
-                            <button id=grangerBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('grangerBtn', 'granger', 'cgranger');">Granger</button>
-                            <button id=scamanderBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('scamanderBtn', 'scamander', 'cscamander');">Scamander</button>
-                            <button id=ministryBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('ministryBtn', 'ministry', 'cministry');">Ministry of Magic</button>
+                            <button id=kimmkornBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('kimmkornBtn', 'ckimmkorn');">Kimmkorn</button>
+                            <button id=lockhartBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('lockhartBtn', 'clockhart');">Lockhart</button>
+                            <button id=grangerBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('grangerBtn', 'cgranger');">Granger</button>
+                            <button id=scamanderBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('scamanderBtn', 'cscamander');">Scamander</button>
+                            <button id=ministryBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('ministryBtn', 'cministry');">Ministry of Magic</button>
                             <div class="fltr__dropdown-divider my-2"></div>
                         </div>
                     </div>
@@ -123,9 +122,9 @@
                     </div>
                     <div class="row">
                         <div class="flex-col">       
-                            <button id=shortBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('shortBtn', 'short', 'cshort');">short</button>
-                            <button id=mediumBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('mediumBtn', 'medium', 'cmedium');">medium</button>
-                            <button id=longBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('longBtn', 'long', 'clong');">long</button>
+                            <button id=shortBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('shortBtn', 'cshort');">short</button>
+                            <button id=mediumBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('mediumBtn', 'cmedium');">medium</button>
+                            <button id=longBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('longBtn', 'clong');">long</button>
                             <div class="fltr__dropdown-divider my-2"></div>
                         </div>
                     </div>
@@ -138,13 +137,13 @@
                     </div>
                     <div class="row">
                         <div class="flex-col">       
-                            <button id=londonBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('londonBtn', 'london', 'clondon');">London</button>
-                            <button id=hogwartsLocBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsLocBtn', 'hogwartsLoc', 'chogwartsLoc');">Hogwarts</button>
-                            <button id=ukBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('ukBtn', 'uk', 'cuk');">UK</button>
-                            <button id=usaBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('usaBtn', 'usa', 'cusa');">USA</button>
-                            <button id=euBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('euBtn', 'eu', 'ceu');">Europe</button>
-                            <button id=asiaBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('asiaBtn', 'asia', 'casia');">Asia</button>
-                            <button id=northpoleBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('northpoleBtn', 'northpole', 'cnorthpole');">Northpole</button>
+                            <button id=londonBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('londonBtn', 'clondon');">London</button>
+                            <button id=hogwartsLocBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('hogwartsLocBtn', 'chogwartsLoc');">Hogwarts</button>
+                            <button id=ukBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('ukBtn', 'cuk');">UK</button>
+                            <button id=usaBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('usaBtn', 'cusa');">USA</button>
+                            <button id=euBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('euBtn', 'ceu');">Europe</button>
+                            <button id=asiaBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('asiaBtn', 'casia');">Asia</button>
+                            <button id=northpoleBtn type="button" class="btn btn-info" onclick="toggleButtonAndCookie('northpoleBtn', 'cnorthpole');">Northpole</button>
                             <div class="fltr__dropdown-divider my-2"></div>
                         </div>
                     </div>
@@ -181,6 +180,14 @@
                     <button type="button" class="btn btn-forward" onmousedown="forwardTicker();" onmouseup="resetTicker();"></button>
                     <button type="button" class="btn btn-backward"onmousedown="reverseTicker();" onmouseup="resetTicker();"></button>
                 
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">       <!-- Span 12/12 -->
+                <button type="button" class="btn btn-primary" onclick="reset()">Reset to default</button>
             </div>
         </div>
     </div>

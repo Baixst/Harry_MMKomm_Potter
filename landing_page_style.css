@@ -1,0 +1,108 @@
+body {
+	background-image: url(Background_V1.png);
+    background-size: cover;
+	width: 1000px;
+    max-width: 90%;
+    
+	}
+
+h1 {
+	font-size: 30pt;
+	font-family: arial black, sans-serif;
+	
+	color: black;
+	
+	text-decoration: underline;
+	
+	text-align: center;
+    
+	}
+
+h2{
+	font-size: 12pt;
+	font-family: arial black, sans-serif;
+	
+	color: black;
+	
+	text-decoration: underline;
+	}
+
+h3 {
+	font-size: 12pt;
+	font-family: arial black, sans-serif;
+	
+	color: black;
+	
+	text-decoration: underline;
+	}
+
+p {
+    font-family: arial black;
+    font-size: 10pt;
+    
+} 
+
+.Backlink {
+    font-size: 20px;
+    float: right;
+    Background: none;
+    margin: bottom;
+    padding-right: auto;
+}
+
+.Ebene1 {
+    text-align: center;
+    font-family: arial black;
+    font-size: 10pt;
+    margin: 20px;    
+
+}
+
+.Ebene2 {
+    float: left;
+    margin: 15pt;
+    font-family: arial black;
+    font-size: 10pt;
+    width: 400px;
+    margin: 20px;
+    text-align: center;
+}
+
+.Ebene3 {
+    float: left;
+    margin: 15pt;
+    font-family: arial black;
+    font-size: 10pt;
+    width: 400px;
+    margin: 20px;
+    text-align: center;
+}
+
+a:hover {
+    background-color: none;
+}
+
+ul {
+     position: relative;
+     float: left;
+     left: 50%;
+     margin: 0 auto;
+     padding: 0;
+}
+
+li {
+     position: relative;
+     float: left;
+     right: 45%;
+     margin-right: 10px;
+     padding: 5px 10px;
+     list-style: none;
+     background-color: none;
+    
+}
+
+img {
+    width: auto;
+    height: 500px;
+    margin-top: 30px;
+}

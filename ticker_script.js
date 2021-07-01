@@ -34,21 +34,21 @@ var headlines = [];
 function createAllHeadlines() {
 
     // Format: Title, Link, Topic, Author, Length, Location
-    addHeadline(" Firebolt now deals 3d10 damage!", "#", "spellNews", "ministry", "short", "london", "default");
-    addHeadline(" Tasha's Mind Whip", "#", "spellNews", "kimmkorn", "short", "asia", "default");
-    addHeadline(" Mass Healing Word invented.", "#", "spellNews", "kimmkorn", "short", "eu", "default");
+    addHeadline(" Firebolt now deals 3d10 damage!", "article.html", "spellNews", "ministry", "short", "london", "default");
+    addHeadline(" Tasha's Mind Whip", "article.html", "spellNews", "kimmkorn", "short", "asia", "default");
+    addHeadline(" Mass Healing Word invented.", "article.html", "spellNews", "kimmkorn", "short", "eu", "default");
 
-    addHeadline(" Broken arms are the most common injury.", "#", "sportNews", "kimmkorn", "short", "london", "default");
-    addHeadline(" Top 5 Plays of the World Cup", "#", "sportNews", "lockhart", "short", "london", "default");
+    addHeadline(" Broken arms are the most common injury.", "article.html", "sportNews", "kimmkorn", "short", "london", "default");
+    addHeadline(" Top 5 Plays of the World Cup", "article.html", "sportNews", "lockhart", "short", "london", "default");
 
-    addHeadline(" Study shows: Muggles like Spongebob Squarepants.", "#", "muggleNews", "ministry", "short", "usa", "default");
-    addHeadline(" Trump banned from Twitter.", "#", "muggleNews", "lockhart", "short", "usa", "default");
+    addHeadline(" Study shows: Muggles like Spongebob Squarepants.", "article.html", "muggleNews", "ministry", "short", "usa", "default");
+    addHeadline(" Trump banned from Twitter.", "article.html", "muggleNews", "lockhart", "short", "usa", "default");
 
-    addHeadline(" Hedwig for president!!!", "#", "politicNews", "ministry", "short", "hogwartsLoc", "default");
+    addHeadline(" Hedwig for president!!!", "article.html", "politicNews", "ministry", "short", "hogwartsLoc", "default");
 
-    addHeadline(" Explosion in Hufflepuff dorm", "#", "hogwartsNews", "scamander", "short", "hogwartsLoc", "default");
+    addHeadline(" Explosion in Hufflepuff dorm", "article.html", "hogwartsNews", "scamander", "short", "hogwartsLoc", "default");
 
-    addHeadline(" \"Aurors are underpayed\" says Harry Potter", "#", "aurorNews", "granger", "short", "northpole", "default");
+    addHeadline(" \"Aurors are underpayed\" says Harry Potter", "article.html", "aurorNews", "granger", "short", "northpole", "default");
 }
 
 function addHeadline(HTitle, HLink, HTopic, HAuthor, HArtLength, HLocation, HStatus) {

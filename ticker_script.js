@@ -33,22 +33,34 @@ var headlines = [];
 // write all headlines in here (leave one space before title)
 function createAllHeadlines() {
 
-    // Format: Title, Link, Topic, Author, Length, Location
-    addHeadline(" Firebolt now deals 3d10 damage!", "article.html", "spellNews", "ministry", "short", "london", "default");
-    addHeadline(" Tasha's Mind Whip", "article.html", "spellNews", "kimmkorn", "short", "asia", "default");
-    addHeadline(" Mass Healing Word invented.", "article.html", "spellNews", "kimmkorn", "short", "eu", "default");
+// Format: Title, Link, Topic, Author, Length, Location
+	
+	addHeadline(" \"Aurors are underpayed\" says Harry Potter", "article.html", "aurorNews", "granger", "short", "london", "default");
+	
+	addHeadline(" New rules for the upcoming Quidditch World Cup", "article.html", "sportNews", "ministry", "long", "london", "default");
+	
+	addHeadline(" MACUSA refuses to work together with the aurors", "article.html", "aurorNews", "kimmkorn", "long", "usa", "default");
+	
+	addHeadline(" Appleby Arrows wins the British and Irish Quidditch League!", "article.html", "sportNews", "kimmkorn", "short", "uk", "default");
+	
+	addHeadline(" New teacher for Defense against the dark arts", "article.html", "hogwartsNews", "ministry", "medium", "hogwartsLoc", "default");
+	
+	addHeadline(" Study shows: Muggles like Spongebob Squarepants.", "article.html", "muggleNews", "ministry", "short", "usa", "default");
+	
+	addHeadline(" Was Lockhart the best looking Teacher ever? ", "article.html", "sportNews", "lockhart", "short", "london", "default");
+	
+	addHeadline(" Broken arms are the most common injury.", "article.html", "sportNews", "kimmkorn", "short", "london", "default");
+	
+	addHeadline(" New sport invented - by myself!", "article.html", "sportNews", "lockhart", "short", "london", "default");
+	
+	addHeadline(" Slytherin wins the Quidditch Cup!", "article.html", "hogwartsNews", "kimmkorn", "short", "hogwartsLoc", "default");
 
-    addHeadline(" Broken arms are the most common injury.", "article.html", "sportNews", "kimmkorn", "short", "london", "default");
-    addHeadline(" Top 5 Plays of the World Cup", "article.html", "sportNews", "lockhart", "short", "london", "default");
-
-    addHeadline(" Study shows: Muggles like Spongebob Squarepants.", "article.html", "muggleNews", "ministry", "short", "usa", "default");
     addHeadline(" Trump banned from Twitter.", "article.html", "muggleNews", "lockhart", "short", "usa", "default");
 
-    addHeadline(" Hedwig for president!!!", "article.html", "politicNews", "ministry", "short", "hogwartsLoc", "default");
+    addHeadline(" New Minister in Japan!", "article.html", "politicNews", "ministry", "short", "asia", "default");
+	
+	addHeadline(" Sales record of my new own book!", "article.html", "spellNews", "lockhart", "short", "london", "default");
 
-    addHeadline(" Explosion in Hufflepuff dorm", "article.html", "hogwartsNews", "scamander", "short", "hogwartsLoc", "default");
-
-    addHeadline(" \"Aurors are underpayed\" says Harry Potter", "article.html", "aurorNews", "granger", "short", "northpole", "default");
 }
 
 function addHeadline(HTitle, HLink, HTopic, HAuthor, HArtLength, HLocation, HStatus) {
@@ -442,22 +454,22 @@ function updateDots() {
     
     var dotHTML = "<span class='dot'></span>";
     
-    if(getCookie("csport") == "on") {
+    if(getCookie("csport") == "on" || getCookie("csport") == "default") {
         $(".sportNews").after(dotHTML);
     }
-    if(getCookie("cspell") == "on") {
+    if(getCookie("cspell") == "on"|| getCookie("cspell") == "default") {
         $(".spellNews").after(dotHTML);
     }
-    if(getCookie("cmuggle") == "on") {
+    if(getCookie("cmuggle") == "on"|| getCookie("cmuggle") == "default") {
         $(".muggleNews").after(dotHTML);
     }
-    if(getCookie("cpolitic") == "on") {
+    if(getCookie("cpolitic") == "on"|| getCookie("cpolitic") == "default") {
         $(".politicNews").after(dotHTML);
     }
-    if(getCookie("chogwarts") == "on") {
+    if(getCookie("chogwarts") == "on" || getCookie("chogwarts") == "default") {
         $(".hogwartsNews").after(dotHTML);
     }
-    if(getCookie("cauror") == "on") {
+    if(getCookie("cauror") == "on"|| getCookie("cauror") == "default") {
         $(".aurorNews").after(dotHTML);
     }
 }

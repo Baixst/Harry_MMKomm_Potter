@@ -18,6 +18,5 @@
   Alle Möglichen Parameter sind unter dem Array "headlineClasses" gelistet (Zeile 16-20)!
 
 ## TO-DO:
-- Slider für "Days Since Release" funktional machen
-- Eigenes Design in Webseite einbauen
+- Design fixen
 

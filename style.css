@@ -3,17 +3,32 @@ body {
     background-size: cover;
 }
 
+h1 {
+    color: black;
+    font-family: "Cloister Black";
+    font-size: 100px;
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+}
+
 .news {
     width: 18%;
 }
 
 .news-scroll {
     margin-top: 3px; 
-    margin-bottom: 3px; 
+    margin-bottom: 3px;
 }
 
+
+
 .news-scroll a {
-    text-decoration: none
+    color: black;
+    font-family: "Cloister Black";
+    font-size: 30px;
 }
 
 .dot {
@@ -25,10 +40,6 @@ body {
     background-color: rgb(136, 96, 48);
     border-radius: 50%;
     display: inline-block
-}
-
-.bg-ticker-logo {
-    background-color: rgb(136, 96, 48);
 }
 
 .ui-modal__overlay {
@@ -53,14 +64,14 @@ body {
 #sliderAmount {
     border:0;
     width: 10%;
-    color:#977247;
+   /* color:#977247; */
     font-weight: bold;
 }
 
 .btn-sport {
     background-image: url('Sport.png');
     background-size: cover;
-    width: 10%;
+    width: 140px;
     height: 100px;
     padding-top: 15px;
     padding-bottom: 50px;
@@ -69,8 +80,8 @@ body {
 .btn-spell {
     background-image: url('New\ Spells.png');
     background-size: cover;
-    width: 12%;
-    height: 110px;
+    width: 140px;
+    height: 100px;
     padding-top: 15px;
     padding-bottom: 50px;
 }
@@ -78,7 +89,7 @@ body {
 .btn-muggle {
     background-image: url('Muggle\ Area.png');
     background-size: cover;
-    width: 12%;
+    width: 140px;
     height: 100px;
     padding-top: 15px;
     padding-bottom: 50px;
@@ -87,7 +98,7 @@ body {
 .btn-politic {
     background-image: url('Politics.png');
     background-size: cover;
-    width: 09%;
+    width: 140px;
     height: 100px;
     padding-top: 15px;
     padding-bottom: 50px;
@@ -96,7 +107,7 @@ body {
 .btn-hogwarts {
     background-image: url('Hogwarts.png');
     background-size: cover;
-    width: 10%;
+    width: 140px;
     height: 100px;
     padding-top: 15px;
     padding-bottom: 50px;
@@ -105,7 +116,7 @@ body {
 .btn-auror {
     background-image: url('Aurors.png');
     background-size: cover;
-    width: 08%;
+    width: 140px;
     height: 100px;
     padding-top: 15px;
     padding-bottom: 50px;
@@ -114,8 +125,8 @@ body {
 .btn-options {
     background-image: url('More.png');
     background-size: cover;
-    width: 10%;
-    height: 115px;
+    width: 140px;
+    height: 100px;
     padding-top: 15px;
     padding-bottom: 50px;
 }
@@ -123,8 +134,8 @@ body {
 .btn-forward {
     background-image: url('Forward\ Button.png');
     background-size: cover;
-    width: 50%;
-    height: 20px;
+    width: 130px;
+    height: 10%;
     padding-top: 15px;
     padding-bottom: 50px;
 }
@@ -132,7 +143,7 @@ body {
 .btn-backward {
     background-image: url('Backward\ Button.png');
     background-size: cover;
-    width: 50%;
+    width: 125px;
     height: 10%;
     padding-top: 15px;
     padding-bottom: 50px;

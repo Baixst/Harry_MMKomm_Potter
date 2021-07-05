@@ -30,15 +30,28 @@
     <title>Newsticker</title>
 </head>
 <body onload="setFilter();">
-
+    
     <script>checkCookies();</script>
+
+    <div class="ticker_background">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Daily Prophet</h1>
+            </div>
+            <div class="col-md-4">
+                <img src="dp_logo.png" height="150px" width="150px">
+            </div>
+        </div>
+    </div>
+
 
     <!-- Filter Buttons for ticker-->
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-2"></div> <!-- Span 2/12 -->
+            <div class="col-md-1"></div> <!-- Span 2/12 -->
 
-            <div class="col-md-10">       <!-- Span 12/12 -->
+            <div class="col-md-11">       <!-- Span 12/12 -->
                 <button id=sportBtn type="button" class="btn btn-sport filter-default" onclick="toggleModalButtonAndCookie('sportBtn','sportBtn-modal', 'csport', 'csport-modal');"></button>
                 <button id=spellBtn type="button" class="btn btn-spell filter-default" onclick="toggleModalButtonAndCookie('spellBtn', 'spellBtn-modal', 'cspell', 'cspell-modal');"></button>
                 <button id=muggleBtn type="button" class="btn btn-muggle filter-default" onclick="toggleModalButtonAndCookie('muggleBtn', 'muggleBtn-modal', 'cmuggle', 'cmuggle-modal');"></button>
@@ -163,10 +176,11 @@
     <!-- Newsticker-->
     <div class="container mt-2">
         <div class="row">
-            <div class="col-md-9"> <!-- Span 10/12 -->
-                <div class="d-flex justify-content-between align-items-center breaking-news bg-white border border-dark">
-                    <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-ticker-logo py-2 text-white px-1 news">
-                            <span class="d-flex align-items-center">Latest News</span>
+            <div class="col-md-9" style="padding-right: 2px;"> <!-- Span 10/12 -->
+                <div class="d-flex justify-content-between align-items-center breaking-news">
+                    <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-ticker-logo py-2 text-white link-dark px-1 news" style="margin-right: 10px;">
+                        <img src="Latest_News.png" width="200px">
+                            <!--span class="d-flex align-items-center"></span-->
                     </div>
                     <marquee id=ticker_marquee class="news-scroll" behavior="scroll" direction="left" scrollamount="3" scrolldelay="20" truespeed
                              onmouseover="this.stop();" onmouseout="this.start();">
@@ -177,13 +191,13 @@
             </div>
 
               <!-- Add forwards and backwards buttons-->
-            <div class ="col-md-3"> <!-- Span 12/12 -->
+            <div class ="col-md-3" style="padding-left: 0px;"> <!-- Span 12/12 -->
                     <button type="button" class="btn btn-forward" onmousedown="forwardTicker();" onmouseup="resetTicker();"></button>
                     <button type="button" class="btn btn-backward"onmousedown="reverseTicker();" onmouseup="resetTicker();"></button>
                 
             </div>
         </div>
     </div>
-        
+</div>  
 </body>
 </html>

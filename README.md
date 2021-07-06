@@ -1,4 +1,4 @@
-# Harry Potter Newsticker für M-M-Komm
+# Harry Potter Newsticker Projekt für Mensch-Maschine-Kommunikation (Studium)
 
 ## Neue Headline zum Ticker hinzufügen:
 
@@ -16,7 +16,3 @@
   - **Location:** Welchen Ort betrifft der Artikel
 
   Alle Möglichen Parameter sind unter dem Array "headlineClasses" gelistet (Zeile 16-20)!
-
-## TO-DO:
-- Design fixen
-
